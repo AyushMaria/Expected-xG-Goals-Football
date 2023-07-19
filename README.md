@@ -54,4 +54,13 @@ Expected Goals models are utilised by both bookmakers and professional gamblers 
 
 Through this attempt I have tried to create an expected goals model to understand the quality of the football shots by football players who played for F.C. Barcelona.
 
+## References
+[1] https://statsbomb.com/soccer-metrics/expected-goals-xg-explained/ <br>
+[2] Tuyls, Karl, et al. "Game Plan: What AI can do for Football, and What Football can do for AI." Journal of Artificial Intelligence Research 71 (2021): 41-88.
 
+## Contributors
+[Ayush Maria]([https://www.google.com](https://github.com/AyushMaria)https://github.com/AyushMaria)
+
+## Support
+
+If you found this useful, please consider starring(★) the repo so that it can reach a broader audience
