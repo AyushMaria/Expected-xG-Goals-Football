@@ -8,6 +8,8 @@ Put simply, Expected Goals (xG) is a metric designed to measure the probability 
 ## How is xG calculated?
 Each xG model has its own characteristics, but these are the main factors that have traditionally been fed into the large majority of Expected Goals models: distance to goal, angle to goal, body part with which the shot was taken, and type of assist or previous action (throughball, cross, set-piece, dribble, etc…). Based on historical information of shots with similar characteristics, the xG model then attributes a value between 0 and 1 to each shot that expresses the probability of it producing a goal.
 
+<p align="center" src ="![factors](https://github.com/AyushMaria/Expected-xG-Goals-Football/assets/45310413/5d5ffc5d-a6c0-484a-b281-13cca42a2763)"</p>
+
 ## Why do you see different xG values for the same shot?
 Not all xG models take into account the same factors. For example, a standard Expected Goals model that only features distance to goal, angle to goal, body part, and type of assist or previous action might value a given shot at 0.30 xG. A more precise model such as StatsBomb xG adds key information such as goalkeeper position and status, the position of all attackers and defenders in frame, and shot impact height to give a more accurate picture of chance quality. For instance, knowing the goalkeeper was out of position, it might give the same chance a value of 0.65 xG.
 
@@ -19,7 +21,6 @@ Goals are the most important events in football, but they are also the most infr
 
 ## How accurate are Expected Goals?
 There is obviously a degree of residual variance between goals and xG over certain time periods given that shots have a boolean outcome of either goal or no goal, whereas xG values fall on a probabilistic scale between 0 and 1. An independent study by Lars Maurath suggests that depending on model quality, between 79% and 93% of team seasons should be expected to match xG to goals within a 95% confidence interval.
-
 
 ## How do xG models treat penalties?
 As all penalty kicks share the same characteristics, they are assigned a static value of 0.76 xG by the large majority of models, reflective of the historical conversion rate of penalties. The 2022 update of the StatsBomb xG model modifies this static value to 0.78 xG. Goals scored and xG generated from penalties are often removed from player and team totals when analysing performance.
