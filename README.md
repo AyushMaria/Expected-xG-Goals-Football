@@ -26,6 +26,13 @@ There is obviously a degree of residual variance between goals and xG over certa
 As all penalty kicks share the same characteristics, they are assigned a static value of 0.76 xG by the large majority of models, reflective of the historical conversion rate of penalties. The 2022 update of the StatsBomb xG model modifies this static value to 0.78 xG. Goals scored and xG generated from penalties are often removed from player and team totals when analysing performance.
 
 
+## How can xG be used? 
+
+###  Team Analysis
+
+xG can be used to get a better idea of underlying team quality beyond current results, highlighting teams who are over or under-performing their expected numbers and whose results may soon begin to change. 
+
+
 Through this attempt I have tried to create an expected goals model to understand the quality of the football shots by football players who played for F.C. Barcelona.
 
 
