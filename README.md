@@ -2,7 +2,6 @@
 
 
 ## What is xG?
-![pitch](https://github.com/AyushMaria/Expected-xG-Goals-Football/assets/45310413/b89fd683-5940-488f-a51d-cabc7f3ff7b6)
 
 Put simply, Expected Goals (xG) is a metric designed to measure the probability of a shot resulting in a goal. An xG model uses historical information from thousands of shots with similar characteristics to estimate the likelihood of a goal on a scale between 0 and 1. For example, a shot with an xG value of 0.2 is one that we would generally expect to be converted twice in every 10 attempts. But that's just the start of it. Read on for a guide to understanding one of the most common advanced metrics in football (soccer).
 
@@ -33,6 +32,12 @@ xG can be used to get a better idea of underlying team quality beyond current re
 
 ### Player Analysis
 Expected Goals totals can be used to determine when a player might be in the midst of a hot or cold streak in front of goal, while looking at average shot quality (xG/shot) can highlight players taking good or bad shots. 
+
+### Head Coach Scouting
+xG models provide an objective measure of underlying team performance that can be used to highlight interesting coaches who are producing effective football. 
+
+### Predictive Modelling
+Expected Goals models are utilised by both bookmakers and professional gamblers as a cornerstone of predictive modelling around future results
 
 Through this attempt I have tried to create an expected goals model to understand the quality of the football shots by football players who played for F.C. Barcelona.
 
