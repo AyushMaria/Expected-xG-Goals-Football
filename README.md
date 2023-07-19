@@ -63,4 +63,8 @@ Through this attempt I have tried to create an expected goals model to understan
 
 ## Support
 
-If you found this useful, please consider starring(★) the repo so that it can reach a broader audience
+If you found this useful, please consider starring(★) the repo so that it can reach a broader audience.
+
+## License
+
+This project is licensed under the MIT License. Feel free to create a Pull Request for adding implementations or suggesting new ideas to make the analysis more insightful.
