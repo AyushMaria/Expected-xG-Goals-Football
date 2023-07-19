@@ -59,7 +59,7 @@ Through this attempt I have tried to create an expected goals model to understan
 [2] Tuyls, Karl, et al. "Game Plan: What AI can do for Football, and What Football can do for AI." Journal of Artificial Intelligence Research 71 (2021): 41-88.
 
 ## Contributors
-[Ayush Maria]([https://www.google.com](https://github.com/AyushMaria)https://github.com/AyushMaria)
+### [Ayush Maria](https://github.com/AyushMaria)
 
 ## Support
 
