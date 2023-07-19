@@ -16,7 +16,7 @@ Not all xG models take into account the same factors. For example, a standard Ex
 xG models are important because they are the most accurate predictor of future team and player performance available. At a team level, Expected Goals models are more predictive of future performance than both current goal difference and simple shot-count metrics such as Total Shots Ratio (TSR). xG models allow us to look beyond current results to get a better idea of the underlying quality of both teams and players.
 
 
-<p align = "center"> <img src = "https://github.com/AyushMaria/Expected-xG-Goals-Football/blob/main/ff.jpeg"></p>
+<p align = "center"> <img src = "https://github.com/AyushMaria/Expected-xG-Goals-Football/blob/main/ff.png"></p>
 
 ## How was xG developed?
 Goals are the most important events in football, but they are also the most infrequent. In most leagues, there are only 2.5-3 goals per match. Variance plays a big role in results. So we first started to look at shots. There are 25 to 30 of those per match -- 10 times more. That gave rise to metrics such as Total Shots Ratio (TSR) that measured team dominance by their share of the shots in their matches. But not all shots are created equal. We needed a method to measure the quality of a given shot or set of shots, and so xG models were born.
