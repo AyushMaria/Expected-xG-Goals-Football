@@ -2,7 +2,7 @@
 
 ## What is xG?
 
-Put simply, Expected Goals (xG) is a metric designed to measure the probability of a shot resulting in a goal. An xG model uses historical information from thousands of shots with similar characteristics to estimate the likelihood of a goal on a scale between 0 and 1. For example, a shot with an xG value of 0.2 is one that we would generally expect to be converted twice in every 10 attempts. But that's just the start of it. Read on for a guide to understanding one of the most common advanced metrics in football (soccer).
+Put simply, Expected Goals (xG) is a metric designed to measure the probability of a shot resulting in a goal. An xG model uses historical information from thousands of shots with similar characteristics to estimate the likelihood of a goal on a scale between 0 and 1. For example, a shot with an xG value of 0.2 is one that one would generally expect to be converted twice in every 10 attempts. But that's just the start of it. Read on for a guide to understanding one of the most common advanced metrics in football (soccer).
 
 ## How is xG calculated?
 Each xG model has its own characteristics, but these are the main factors that have traditionally been fed into the large majority of Expected Goals models: distance to goal, angle to goal, body part with which the shot was taken, and type of assist or previous action (throughball, cross, set-piece, dribble, etc…). Based on historical information of shots with similar characteristics, the xG model then attributes a value between 0 and 1 to each shot that expresses the probability of it producing a goal.
@@ -19,7 +19,7 @@ xG models are important because they are the most accurate predictor of future t
 <p align = "center"> <img height ="550" width ="860" src = "https://github.com/AyushMaria/Expected-xG-Goals-Football/blob/main/ff.png"></p>
 
 ## How was xG developed?
-Goals are the most important events in football, but they are also the most infrequent. In most leagues, there are only 2.5-3 goals per match. Variance plays a big role in results. So we first started to look at shots. There are 25 to 30 of those per match -- 10 times more. That gave rise to metrics such as Total Shots Ratio (TSR) that measured team dominance by their share of the shots in their matches. But not all shots are created equal. We needed a method to measure the quality of a given shot or set of shots, and so xG models were born.
+Goals are the most important events in football, but they are also the most infrequent. In most leagues, there are only 2.5-3 goals per match. Variance plays a big role in results. There are 25 to 30 of those per match -- 10 times more. That gave rise to metrics such as Total Shots Ratio (TSR) that measured team dominance by their share of the shots in their matches. But not all shots are created equal. The need of a method to measure the quality of a given shot or set of shots, and so xG models were born.
 
 ## How accurate are Expected Goals?
 There is obviously a degree of residual variance between goals and xG over certain time periods given that shots have a boolean outcome of either goal or no goal, whereas xG values fall on a probabilistic scale between 0 and 1. An independent study by Lars Maurath suggests that depending on model quality, between 79% and 93% of team seasons should be expected to match xG to goals within a 95% confidence interval.
