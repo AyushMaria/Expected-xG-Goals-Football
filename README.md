@@ -29,9 +29,10 @@ As all penalty kicks share the same characteristics, they are assigned a static 
 ## How can xG be used? 
 
 ###  Team Analysis
-
 xG can be used to get a better idea of underlying team quality beyond current results, highlighting teams who are over or under-performing their expected numbers and whose results may soon begin to change. 
 
+### Player Analysis
+Expected Goals totals can be used to determine when a player might be in the midst of a hot or cold streak in front of goal, while looking at average shot quality (xG/shot) can highlight players taking good or bad shots. 
 
 Through this attempt I have tried to create an expected goals model to understand the quality of the football shots by football players who played for F.C. Barcelona.
 
