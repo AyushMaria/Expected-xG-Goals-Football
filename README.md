@@ -79,6 +79,9 @@ python scripts/build_shots.py --gender male --out data/shots_all_men.parquet
 # Train, tune and evaluate the models (~6 min); see docs/RESULTS.md
 python scripts/train_evaluate.py --shots data/shots_all_men.parquet --out results
 
+# Team and player tables from out-of-fold xG; see docs/TABLES.md
+python scripts/xg_tables.py --oof results/oof_xg.parquet --out docs/TABLES.md
+
 # Run the tests
 python -m pytest
 ```
@@ -110,10 +113,11 @@ Expected-xG-Goals-Football/
 ├── xg/
 │   ├── data.py                  # Download + cache StatsBomb open data
 │   ├── features.py              # Events → one row per shot with model features
-│   └── model.py                 # Modelling set, models, match-grouped tuning, calibration metrics
+│   ├── model.py                 # Modelling set, models, match-grouped tuning, calibration metrics
+│   └── tables.py                # League tables and goals-vs-xG finishing tables
 ├── scripts/
 │   └── build_shots.py           # Command-line build of the shot table
-├── docs/                        # DATA.md (dataset) and RESULTS.md (model evaluation)
+├── docs/                        # DATA.md (dataset), RESULTS.md (model evaluation), TABLES.md (team/player tables)
 ├── tests/                       # pytest tests (no network needed)
 ├── data/                        # Created by build_shots.py (not committed)
 ├── src/
