@@ -2,7 +2,7 @@
 
 An end-to-end data science project that builds an **Expected Goals (xG) model** for FC Barcelona using StatsBomb open-data event feeds. The project covers the full ML pipeline: data extraction from the StatsBomb API → data cleaning → EDA → model training — and was submitted as an **MSc Computer Science & Technology thesis**.
 
-> **Thesis:** `Maria_349256_Thesis_MScCSTE.pdf` · **Presentation:** `Thesis Presentation.pptx`
+> **Thesis:** `Maria_349256_Thesis_MScCSTE.pdf` (original, 2022) · **Revised edition (2026, all men's StatsBomb data):** `thesis/Maria_349256_Thesis_MScCSTE_revised.pdf` · **Presentation:** `Thesis Presentation.pptx`
 
 ---
 
@@ -120,7 +120,10 @@ Expected-xG-Goals-Football/
 │   ├── tables.py                # League tables and goals-vs-xG finishing tables
 │   └── compare.py               # Match-bootstrap confidence intervals
 ├── scripts/
-│   └── build_shots.py           # Command-line build of the shot table
+│   ├── build_shots.py           # Command-line build of the shot table
+│   ├── plot_eda.py              # EDA figures for the revised thesis
+│   └── plot_thesis_results.py   # Results figures for the revised thesis
+├── thesis/                      # LaTeX source + PDF of the revised thesis (2026)
 ├── docs/                        # DATA.md, RESULTS.md (model evaluation), TABLES.md (team/player tables), LEAGUES.md (league comparison)
 ├── tests/                       # pytest tests (no network needed)
 ├── data/                        # Created by build_shots.py (not committed)
@@ -130,7 +133,7 @@ Expected-xG-Goals-Football/
 │   ├── EDA+Model.ipynb          # EDA, model training & evaluation
 │   ├── Half_Pitch.ipynb         # Half-pitch shot map
 │   └── Pitch_Plot.ipynb         # Full-pitch shot map
-├── Maria_349256_Thesis_MScCSTE.pdf  # MSc thesis document
+├── Maria_349256_Thesis_MScCSTE.pdf  # MSc thesis document (original 2022 edition)
 ├── Thesis Presentation.pptx         # Thesis presentation slides
 ├── factors.jpeg                     # xG factors diagram
 ├── ff.png                           # Expected goals visual
