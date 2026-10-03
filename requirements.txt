@@ -1,0 +1,7 @@
+# Data step (xg/ package, scripts/build_shots.py) and tests.
+# The notebooks need more packages (scikit-learn, xgboost, lightgbm, catboost, shap, ...);
+# pinning those is card #12.
+numpy>=1.21
+pandas>=1.3
+pyarrow>=10
+pytest>=7
