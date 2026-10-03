@@ -60,6 +60,27 @@ This project uses **StatsBomb open data** — freely available event-level footb
 - **Match events:** `https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/{game_id}.json`
 - **FC Barcelona** data is sourced from La Liga seasons available in the StatsBomb open-data repository (Competition ID: 11)
 
+If you publish work based on this data, credit **StatsBomb** and use their logo, as required by the [open-data terms](https://github.com/statsbomb/open-data).
+
+### Building the shot data
+
+The `xg/` package and `scripts/build_shots.py` download StatsBomb open data, cache it locally in `data/raw/`, and produce one row per shot with the model features. This replaces the old `Data Extraction.ipynb` scraping step and the pickles that were only kept on Google Drive.
+
+```bash
+pip install -r requirements.txt
+
+# The thesis dataset: every La Liga match Barcelona played, 2004/05–2020/21 (~45 s, ~150 MB cache)
+python scripts/build_shots.py --competition "La Liga" --team Barcelona \
+    --seasons 2004/2005-2020/2021 --out data/shots_laliga_barcelona.parquet
+
+# Run the tests
+python -m pytest
+```
+
+The output has the same 24 columns as the original `laliga_data.pkl`, plus `freeze_frame_available`, `gk_in_freeze_frame` and `competition`. To use it in `EDA+Model.ipynb`, replace `pd.read_pickle('./laliga_data.pkl')` with `pd.read_parquet('data/shots_laliga_barcelona.parquet')`.
+
+Compared with the 2022 thesis data, StatsBomb has since added a few matches, re-issued some matches with corrected events, renamed some players and teams, and updated its own xG model (the `official xg` column). The goalkeeper-position bug from the original cleaning code is also fixed: shots whose freeze frame has no goalkeeper now get the goal-centre position and `gk_in_freeze_frame = False`, instead of the previous shot's keeper position.
+
 ---
 
 ## Tech Stack
@@ -80,8 +101,15 @@ This project uses **StatsBomb open data** — freely available event-level footb
 
 ```
 Expected-xG-Goals-Football/
+├── xg/
+│   ├── data.py                  # Download + cache StatsBomb open data
+│   └── features.py              # Events → one row per shot with model features
+├── scripts/
+│   └── build_shots.py           # Command-line build of the shot table
+├── tests/                       # pytest tests (no network needed)
+├── data/                        # Created by build_shots.py (not committed)
 ├── src/
-│   ├── Data Extraction.ipynb    # StatsBomb API data fetching
+│   ├── Data Extraction.ipynb    # Original scraping step (superseded by xg/ and scripts/)
 │   ├── Cleaning_Data.ipynb      # Data wrangling & feature engineering
 │   ├── EDA+Model.ipynb          # EDA, model training & evaluation
 │   ├── Half_Pitch.ipynb         # Half-pitch shot map
