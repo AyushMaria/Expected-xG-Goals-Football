@@ -73,6 +73,9 @@ pip install -r requirements.txt
 python scripts/build_shots.py --competition "La Liga" --team Barcelona \
     --seasons 2004/2005-2020/2021 --out data/shots_laliga_barcelona.parquet
 
+# Every men's match in the open data (~9 min fresh); see docs/DATA.md for a summary
+python scripts/build_shots.py --gender male --out data/shots_all_men.parquet
+
 # Run the tests
 python -m pytest
 ```
