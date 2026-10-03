@@ -82,6 +82,9 @@ python scripts/train_evaluate.py --shots data/shots_all_men.parquet --out result
 # Team and player tables from out-of-fold xG; see docs/TABLES.md
 python scripts/xg_tables.py --oof results/oof_xg.parquet --out docs/TABLES.md
 
+# Does mixing leagues bias xG? See docs/LEAGUES.md
+python scripts/league_comparison.py --shots data/shots_all_men.parquet --results results
+
 # Run the tests
 python -m pytest
 ```
@@ -114,10 +117,11 @@ Expected-xG-Goals-Football/
 │   ├── data.py                  # Download + cache StatsBomb open data
 │   ├── features.py              # Events → one row per shot with model features
 │   ├── model.py                 # Modelling set, models, match-grouped tuning, calibration metrics
-│   └── tables.py                # League tables and goals-vs-xG finishing tables
+│   ├── tables.py                # League tables and goals-vs-xG finishing tables
+│   └── compare.py               # Match-bootstrap confidence intervals
 ├── scripts/
 │   └── build_shots.py           # Command-line build of the shot table
-├── docs/                        # DATA.md (dataset), RESULTS.md (model evaluation), TABLES.md (team/player tables)
+├── docs/                        # DATA.md, RESULTS.md (model evaluation), TABLES.md (team/player tables), LEAGUES.md (league comparison)
 ├── tests/                       # pytest tests (no network needed)
 ├── data/                        # Created by build_shots.py (not committed)
 ├── src/
