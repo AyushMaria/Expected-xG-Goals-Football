@@ -1,0 +1,137 @@
+\documentclass[12pt, a4paper]{report}
+\usepackage[a4paper, total={6in, 8.9in}]{geometry}
+\usepackage{titlesec}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage[parfill]{parskip}
+\usepackage{amsmath} %Used to change formulas names
+\graphicspath{ {images/} }
+\usepackage{pgfplots}
+\usepackage{filecontents}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{nomencl}
+\usepackage{mathtools} 
+\usepackage[style=numeric]{biblatex}
+\usepackage{enumerate}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{nomencl}
+\makenomenclature
+\usepackage[toc,page]{appendix}
+\usepackage{color, colortbl}
+\usepackage{pifont}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{pdfpages}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+
+\lstdefinestyle{Python}{%
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    columns=fullflexible,
+    keepspaces=true,
+    upquote=true,
+    language=Python, % <=====================================================
+}
+
+\lstdefinestyle{Cplus}{%
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    columns=fullflexible,
+    keepspaces=true,
+    upquote=true,
+    language=C++, 
+}
+
+\addbibresource{References.bib}
+
+%% --------------------------- Begin Document ------------------------%
+\begin{document}
+
+\input{cover_page}
+% ---------------- parameters for margins spaces --------------------%
+\titleformat{\chapter}[display]   
+{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}   
+\titlespacing*{\chapter}{0pt}{-55pt}{40pt}
+\titleformat{\chapter}[display]
+{\normalfont\bfseries}{}{0pt}{\Huge}
+
+% ------------------- Table of contents ----------------------------%
+\tableofcontents
+\listoffigures
+\listoftables
+
+%% ---------------------------- Acronyms ----------------------------%
+\nomenclature{\(xG\)}{Expected Goals}
+\printnomenclature
+
+
+
+%% --------------------------- Abstract -----------------------------%
+\begin{abstract}
+Data science and statistics are now part of how football clubs analyse players and teams, recruit in the transfer market and plan for matches. Expected Goals (xG), the probability that a shot results in a goal given the situation it was taken in, is one of the central metrics of this work. This study builds xG models from StatsBomb's open event data: 61,003 open-play shots from 2,616 men's matches since 2000, across the four major European leagues, international tournaments and other competitions. Thirteen features describe each shot, including the positions of the defenders and the goalkeeper taken from StatsBomb's freeze frames. Four algorithms (Logistic Regression, XGBoost, LightGBM and CatBoost) were tuned by cross-validation and tested on 524 held-out matches. All four are well calibrated, predicting within 1.5\% of the goals actually scored, and they are almost tied (AUC 0.804--0.806); the features describing the shot matter far more than the algorithm. The models are then used to analyse teams and players: xG difference tracks the 2015/16 league tables closely, Leicester City won the Premier League while ranking 6th on xG difference, and Lionel Messi scored almost 99 more open-play goals than his chances were worth. Finally, a model pooled across the Premier League, La Liga, Serie A and Ligue 1 is shown to be calibrated in each of them, and more accurate than separate models per league.
+\end{abstract}
+
+%% --------------------------- Preface ------------------------------%
+\chapter*{Preface to the Revised Edition}
+\addcontentsline{toc}{chapter}{Preface to the Revised Edition}
+The original edition of this thesis was submitted in 2022. Its models were trained on the 520 La Liga matches then available in StatsBomb's open data, all of which involved FC Barcelona, so its results described one exceptional team rather than football in general. This revised edition repeats the study on all men's matches in the open data, with the following changes:
+\begin{itemize}
+    \item \textbf{Data:} 61,003 open-play shots from 2,616 men's matches since 2000, instead of the shots of one club. Two errors in the data preparation were also corrected: the goalkeeper's position is now reset for every shot, and shots are assigned to teams through the match line-ups.
+    \item \textbf{Exploratory analysis:} every figure has been redrawn on the new data, using the training matches only, and every statement has been checked against it. Where a feature's relation with goals depends on shot distance, it is now compared within distance bands. Some conclusions changed as a result, for example on kick-offs and on pass type.
+    \item \textbf{Evaluation:} the data is split by match rather than by shot, the models are tuned by cross-validated log loss, and calibration is reported alongside AUC.
+    \item \textbf{Results:} feature importance, team and player analysis are based on the new models and on out-of-fold predictions, and a new section tests whether one model can serve several leagues.
+\end{itemize}
+The introduction and literature review are unchanged apart from minor edits. All numbers and figures can be reproduced with the code in the project repository (section \ref{sec:revised-pipeline}).
+
+
+%%--concrete steps in the past t--------------- links to all sub-documents ---------------------%
+
+\input{introduction}
+\input{literature_review}
+\input{methodology}
+\input{results}
+\input{conclusion}
+\input{future work}
+\input{project_plan}
+%\input{source_code}
+%\includepdf[pages=-]{dd.pdf}
+%\includepdf[pages=-]{EDA+Model.pdf}
+\printbibliography
+
+\end{document}
