@@ -1,0 +1,46 @@
+\chapter{Conclusion}
+
+Through this study four Expected Goals (xG) models were built, with the following aims:
+\begin{itemize}
+    \item Measure the quality of chances created by footballers and footballing teams
+    \item Highlight the use of xG in player profiling and match strategy
+    \item Introduce how AI based on probability is used in football
+    \item Establish a bedrock for future metrics
+    \item Test whether one xG model can serve different leagues and styles of play
+\end{itemize}
+
+The models were trained on 61,003 open-play shots from 2,616 men's matches in StatsBomb's open data, and tested on 524 matches they had never seen. This study includes features that some earlier studies (section \ref{lit}) did not, notably the position of the goalkeeper and the number of players between the ball and the goal, which the model in \cite{rathke2017examination} did not consider.
+
+\section{The Models}
+
+The main conclusions about the models are:
+\begin{itemize}
+    \item \textbf{All four models are well calibrated.} Logistic Regression, XGBoost, LightGBM and CatBoost all predict within 1.5\% of the goals actually scored in the test matches, with a calibration error of about half a percentage point. Their xG values can therefore be added up to judge players and teams.
+    \item \textbf{The algorithm matters little.} The four models are almost tied (log loss 0.2686--0.2699, AUC 0.804--0.806). CatBoost had the best cross-validated log loss and was chosen as the final model, but its advantage over the far simpler Logistic Regression is within what chance could explain. Earlier studies such as \cite{anzer2021goal} and \cite{madrero2020creating} found XGBoost to perform best; in this study the boosting models were indistinguishable from one another and only marginally better than Logistic Regression. Logistic Regression, which is the easiest to interpret, remains a strong choice for an xG model.
+    \item \textbf{The geometry of the shot matters most.} Both Logistic Regression and CatBoost rely above all on shot distance and shot angle, followed by the number of players between the ball and the goal, the goalkeeper's position and the body part. Pressure and pass type add a little, and the play pattern, grouped into Regular and Non Regular Play, adds nothing.
+    \item \textbf{Comparing at the same distance matters.} In the exploratory analysis, body part, pressure and pass type barely relate to goals when taken over all distances, because headers, pressured shots and shots after high passes are all taken closer to goal. Within the same distance, a header, a shot under pressure and a shot after a high pass are all clearly worse chances. Distance has to be accounted for before such features are judged.
+    \item \textbf{StatsBomb's xG remains slightly better at ranking chances} (AUC 0.813), as expected from a model trained on far more data and information, but on these matches it was less well calibrated, predicting 6\% fewer goals than were scored.
+\end{itemize}
+
+\section{Teams and Players}
+
+The results in chapter \ref{results} show how an xG model can be used to profile teams and players:
+\begin{itemize}
+    \item Over a season, a team's xG difference tracks its points closely (rank correlation 0.73--0.85 in the three complete 2015/16 leagues), and the exceptions are informative. Leicester City won the 2015/16 Premier League while ranking only 6th on xG difference, and Arsenal, first on xG difference, finished second.
+    \item Comparing goals with xG separates finishing from chance quality. Lionel Messi scored 400 open-play goals from chances worth 301 xG, almost 99 more than an average finisher would have scored, far beyond what luck could explain. Barcelona as a team scored more than their xG in 15 of 17 La Liga seasons.
+    \item Andrés Iniesta scored fewer goals than his xG, but mainly because his shots were poor chances to begin with (0.082 xG per shot against an average of 0.103). His value lay in creating chances rather than taking them.
+\end{itemize}
+
+\section{Leagues and Styles of Play}
+
+A common concern is that each league's style of play makes a model trained on several leagues biased. On the four complete 2015/16 seasons in the data, this concern was not supported. A model pooled across the Premier League, La Liga, Serie A and Ligue 1 is calibrated in each of them; a model that has never seen a league predicts it almost as well; separate models per league are clearly less accurate; and telling the model which league a shot is from adds nothing. The features describing a chance capture what matters across these styles, and more data matters more than specialising.
+
+A league of a different standard is a different matter: the model predicts 12\% fewer goals than were scored in the Indian Super League, as does StatsBomb's model. For leagues that differ in level rather than style, xG should be recalibrated or used with care.
+
+\section{Limitations}
+
+\begin{itemize}
+    \item StatsBomb's open data is a selection of matches, not a random sample: Barcelona's La Liga matches, the four 2015/16 leagues and a number of tournaments. Players and teams outside these are covered only partly.
+    \item Only four complete league seasons are available, all from 2015/16, so changes over time or by team strength could not be studied.
+    \item The model uses the 13 features of the original study. The finer play patterns, such as counter attacks, and other information available in the data were not added, so that the results stay comparable with the original edition.
+\end{itemize}

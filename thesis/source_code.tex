@@ -1,0 +1,231 @@
+\chapter{Appendix B: Source Code}
+
+\subsection{Half\_Pitch.ipynb}
+\begin{lstlisting}[style=Python]
+import matplotlib.pyplot as plt
+from matplotlib.patches import Arc
+import pandas as pd
+def halfpitchplot():
+    with plt.style.context('bmh'):
+        fig = plt.figure(figsize=[15,9])
+        plt.axis([50, 125, -10, 90])
+        
+        #plt.plot([0,0],[0,80], color="grey")
+        plt.plot([60,120],[80,80], color="grey")
+        plt.plot([120,120],[80,0], color="grey")
+        plt.plot([120,60],[0,0], color="grey")
+        plt.plot([60,60],[0,80], color="grey")
+
+        ''' #Left Penalty Area
+        plt.plot([18,18],[62,18],color="grey")
+        plt.plot([0,18],[62,62],color="grey")
+        plt.plot([18,0],[18,18],color="grey")
+
+        #Left 6-yard Box
+        plt.plot([0,4], [50,50],color="grey")
+        plt.plot([4,4], [50,30],color="grey")
+        plt.plot([4,0], [30,30],color="grey")
+        '''
+        
+        # right penalty area
+        plt.plot([120, 102], [18, 18], color='grey')
+        plt.plot([102, 102], [18, 62], color='grey')
+        plt.plot([102, 120], [62, 62], color='grey')
+
+        # right six yard box
+        plt.plot([120, 114], [30, 30], color='grey')
+        plt.plot([114, 114], [30, 50], color='grey')
+        plt.plot([114, 120], [50, 50], color='grey')
+
+
+        # right goal posts
+        plt.plot([120, 122], [36, 36], color='grey')
+        plt.plot([120, 122], [44, 44], color='grey')
+        plt.plot([122, 122], [36, 44], color='grey')
+
+        '''# left goal posts
+        plt.plot([-2, 0], [36, 36], color='grey')
+        plt.plot([-2, 0], [44, 44], color='grey')
+        plt.plot([-2, -2], [36, 44], color='grey')'''
+        
+        
+        #right Arc
+        rightArc = Arc((108, 40), height=18.3, width=18.3, angle=0, theta1=130, theta2=230, color='black')
+        #leftArc = Arc((12,40), height=18.3, width=18.3, angle=0, theta1=310, theta2=50, color="black")
+        
+        #Prepare Circles
+        centreCircle = plt.Circle((60,40),9.15,color="grey",fill=False)
+        centreSpot = plt.Circle((60,40),0.8,color="grey")
+        #leftPenSpot = plt.Circle((12,40),0.8,color="grey")
+        rightPenSpot = plt.Circle((108,40),0.8,color="grey")
+
+        #Draw Circles
+        ax = plt.gca()
+        ax.add_patch(centreCircle)
+        ax.add_patch(centreSpot)
+        #ax.add_patch(leftPenSpot)
+        ax.add_patch(rightPenSpot)      
+        ax.add_patch(rightArc)
+        #ax.add_patch(leftArc)
+        ax.set_ylim(ax.get_ylim()[::-1])
+        #Tidy Axes
+
+    
+        return fig
+\end{lstlisting}
+
+\subsection{Pitch\_Plot.ipynb}
+\begin{lstlisting}[style=Python]
+import matplotlib.pyplot as plt
+from matplotlib.patches import Arc
+import pandas as pd
+def pitchplot():
+    with plt.style.context('bmh'):
+        fig = plt.figure(figsize=[15,9])
+        plt.axis([-10, 135, -10, 85])
+        
+        plt.plot([0,0],[0,80], color="grey")
+        plt.plot([0,120],[80,80], color="grey")
+        plt.plot([120,120],[80,0], color="grey")
+        plt.plot([120,0],[0,0], color="grey")
+        plt.plot([60,60],[0,80], color="grey")
+
+        #Left Penalty Area
+        plt.plot([18,18],[62,18],color="grey")
+        plt.plot([0,18],[62,62],color="grey")
+        plt.plot([18,0],[18,18],color="grey")
+
+        #Left 6-yard Box
+        plt.plot([0,4], [50,50],color="grey")
+        plt.plot([4,4], [50,30],color="grey")
+        plt.plot([4,0], [30,30],color="grey")
+
+        
+        # right penalty area
+        plt.plot([120, 102], [18, 18], color='grey')
+        plt.plot([102, 102], [18, 62], color='grey')
+        plt.plot([102, 120], [62, 62], color='grey')
+
+        # right six yard box
+        plt.plot([120, 114], [30, 30], color='grey')
+        plt.plot([114, 114], [30, 50], color='grey')
+        plt.plot([114, 120], [50, 50], color='grey')
+
+
+        # right goal posts
+        plt.plot([120, 122], [36, 36], color='grey')
+        plt.plot([120, 122], [44, 44], color='grey')
+        plt.plot([122, 122], [36, 44], color='grey')
+
+        # left goal posts
+        plt.plot([-2, 0], [36, 36], color='grey')
+        plt.plot([-2, 0], [44, 44], color='grey')
+        plt.plot([-2, -2], [36, 44], color='grey')
+        
+        
+        # right Arc
+        rightArc = Arc((108, 40), height=18.3, width=18.3, angle=0, theta1=130, theta2=230, color='black')
+        leftArc = Arc((12,40), height=18.3, width=18.3, angle=0, theta1=310, theta2=50, color="black")
+        
+        #Prepare Circles
+        centreCircle = plt.Circle((60,40),9.15,color="grey",fill=False)
+        centreSpot = plt.Circle((60,40),0.8,color="grey")
+        leftPenSpot = plt.Circle((12,40),0.8,color="grey")
+        rightPenSpot = plt.Circle((108,40),0.8,color="grey")
+
+        #Draw Circles
+        ax = plt.gca()
+        ax.add_patch(centreCircle)
+        ax.add_patch(centreSpot)
+        ax.add_patch(leftPenSpot)
+        ax.add_patch(rightPenSpot)      
+        ax.add_patch(rightArc)
+        ax.add_patch(leftArc)
+        ax.set_ylim(ax.get_ylim()[::-1])
+        #Tidy Axes
+
+    
+        return fig
+\end{lstlisting}
+
+
+\subsection{Data Extraction.ipynb}
+\begin{lstlisting}[style=Python]
+import requests
+from bs4 import BeautifulSoup
+import json
+import re
+
+class Game:
+    """Game object whose only attribute is event-level JSON file (from Statsbomb's github)"""
+    
+    def __init__(self, json_file):
+        self.json_file = json.loads(json_file)
+
+
+def fetch_url(github_season_url):
+    """
+    Function which take a url from Statsbomb's github for a specific season and returns a dictionary maping game ID's to the game's 
+    event level JSON data.
+    
+    Arguments:
+    
+    github_season_url - (String) URL from Statsbomb's github. Format is:
+                        https://github.com/statsbomb/open-data/blob/master/data/matches/{league_ID}/{season_ID}.json
+    """
+    req = requests.get(github_season_url).text
+    soup = BeautifulSoup(req, "lxml") 
+    table = soup.find('table')
+    
+    game_nums = []
+    for td in table.find_all('td'):
+        if "match_id" in td.text:
+            game_num = re.findall(r'[0-9]+', td.text)[0]
+            game_nums.append(game_num)
+            
+    json_files = []
+    base_url_string = "https://raw.githubusercontent.com/statsbomb/open-data/master/data/events/"
+    game_num_dict = {
+        game_num  : Game(requests.get(base_url_string + game_num + ".json").text)
+        for game_num in game_nums
+    }
+ 
+    return game_num_dict
+
+
+def obtain_seasons(competition_id):
+    """
+    Function which takes a competition_id, as specified by Statsbomb, and returns a dictionary where each season maps to 
+    another dictionary containing all games in that season.
+    
+    Arguments:
+    
+    season_id - (int) competition_id as specified by Statsbomb 
+                      See here: https://github.com/statsbomb/open-data/blob/master/data/competitions.json
+    
+    """
+    #Get webpage html for competitions.json
+    req = requests.get("https://raw.githubusercontent.com/statsbomb/open-data/master/data/competitions.json").text
+    #Convert webpage to json format
+    competitions_statsbomb = json.loads(req)
+
+    all_seasons_id = {}
+    for comps in competitions_statsbomb:
+        if comps['competition_id'] == competition_id:
+            season_id = comps['season_id']
+            season_name = comps['season_name']
+        
+            all_seasons_id[season_name] = season_id
+    
+    league_all_games_by_seasons = {}
+    
+    for keys, values in all_seasons_id.items():
+        season_url = "https://github.com/statsbomb/open-data/blob/master/data/matches/{}/{}.json".format(competition_id, values)
+        print("Getting season {}...".format(keys))
+        season = fetch_url(season_url)
+        league_all_games_by_seasons[keys] = season
+    
+    print("Done")
+    
+    return league_all_games_by_seasons
+\end{lstlisting}

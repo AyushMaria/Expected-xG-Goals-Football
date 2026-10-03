@@ -1,0 +1,157 @@
+% --- project plan --- %
+\chapter{Appendix A: Project Plan}
+\section{Introduction}
+This model was to be designed to understand Expected Goals. This chapter presents the project plan that was developed initially:
+\begin{itemize}
+\setlength\itemsep{-0.6em}
+    \item Project Deliverables
+    \item Document Conventions \& Instructions to run the Project
+    \item Milestones
+\end{itemize}
+
+\section{Project Deliverable}
+The following are the deliverable of the project once completed:
+\begin{itemize}
+\setlength\itemsep{-0.6em}
+    \item Project plan
+    \item Project report
+    \item Power Point Presentation
+    \item Poster
+    \item Source Code
+    \item Meeting minutes
+\end{itemize}
+
+\section{Conventions \& Instructions to run the Project}
+
+The whole pipeline was implemented in Python. The libraries used are mentioned below:
+\begin{itemize}
+\setlength\itemsep{-0.6em}
+    \item NumPy
+    \item Pandas
+    \item Beautiful Soup 
+    \item Matplotlib
+    \item Plotly
+    \item Seaborn
+    \item Sci-Kit Learn
+    \item LightGBM
+    \item XGBoost
+    \item CatBoost
+    \item SHAP
+    \item Google Colab
+    \item Google Drive
+\end{itemize}
+
+\subsection{Document Writing}
+This report was created in latex, through the Overleaf platform.
+
+\subsubsection{Naming Convention for Python}
+Python as a programming language employs indentation to split code chunks. Nevertheless, there are some code quality standards that must be fulfilled in order to create code that is both appealing and understandable. The following steps are followed to maintain quality:
+\begin{enumerate}
+    \item \textbf{Imports}
+    The import must be completed in a specific order. First, import the standard libraries, then third-party libraries, and ultimately local libraries. 
+    \item \textbf{Indentation}
+    Tab spaces are used for indentation.
+    \item \textbf{Blank Spaces}
+    Unnecessary blank spaces must be prevented; just one blank space must be used around each side of any operator inculcated, one following a comma, and none within the beginning or closure of parenthesis. 
+\end{enumerate}
+
+The source code was submitted via drop-off, and is not included in the report.
+
+\subsection{Instructions for the Pipeline}
+
+The original (2022) study used five Jupyter Notebooks, listed below. The revised edition replaces them with the \texttt{xg} Python package and command-line scripts described in Section~\ref{sec:revised-pipeline}.
+
+The original notebooks were:
+
+\begin{itemize}
+    \item Data Extraction.ipynb
+    \item Data Cleaning.ipynb
+    \item EDA+Model.ipynb
+    \item Pitch\_Plot.ipynb
+    \item Half\_Pitch.ipynb
+\end{itemize}
+
+\subsubsection{Data Extraction}
+\begin{itemize}
+        \item Contains three functions
+        \item Needs to be called by Data Cleaning.ipynb
+        \item Fetches Competition, Match and Event Data
+    \end{itemize}
+
+\subsubsection{Data Cleaning}
+\begin{itemize}
+        \item Contains functions that plot freeze frames and create a DataFrame from the data obtained from Data Extraction
+        \item To run it needs to be connected to the user's google drive and the necessary files must be present in the file path provided
+        \item Creates a final DataFrame and pickles it for further use
+    \end{itemize}
+
+\subsubsection{EDA+Model}
+\begin{itemize}
+        \item Calls the pickled DataFrame and implements Exploratory Data Analysis on it
+        \item Includes functions to perform feature engineering on the features
+        \item Includes the final Machine Learning and Hyper-Parameter Tuning
+    \end{itemize}
+
+\subsubsection{Half\_Pitch and Pitch\_Plot}
+\begin{itemize}
+        \item Half\_Pitch.ipynb contains a function that allows visualisation of half a football pitch
+        \item Pitch\_Plot.ipynb contains a function that allows visualisation of a football pitch
+        \item Both these files should be present in the main directory and can be called from any file
+    \end{itemize}
+
+\subsection{Pipeline of the Revised Edition}
+\label{sec:revised-pipeline}
+{\sloppy All numbers and figures in the revised edition are produced by the code in the project repository:
+\begin{itemize}
+    \item \texttt{xg/data.py}: downloads and caches StatsBomb open data (competitions, matches, events)
+    \item \texttt{xg/features.py}: builds the shot table and freeze-frame features from the events
+    \item \texttt{xg/model.py}: modelling set, match-grouped split, model tuning and calibration metrics
+    \item \texttt{xg/tables.py} and \texttt{xg/compare.py}: team and player tables, and match-bootstrap confidence intervals
+    \item \texttt{scripts/}: \texttt{build\_shots.py}, \texttt{train\_evaluate.py}, \texttt{xg\_tables.py}, \texttt{league\_comparison.py}, \texttt{plot\_eda.py} and \texttt{plot\_thesis\_results.py}, run in that order
+\end{itemize}
+The steps are documented in \texttt{docs/DATA.md}, \texttt{RESULTS.md}, \texttt{TABLES.md} and \texttt{LEAGUES.md}.\par}
+
+\newpage
+
+\section{Milestones}
+This section was created after the study was completed, and the table below depicts the key milestones. This table solely displays the milestones of the original 2022 study.
+\begin{center}
+\begin{table}[!ht]
+\begin{tabular}{ |p{3.5cm}| p{8cm}|  p{2cm}|}
+\hline
+% head of table
+\textbf{Milestone} & \textbf{Description} & \textbf{Date}\\
+ % body of table
+\hline
+Draft Creation & Draft Literature Review Creation & 04/05/2022\\
+\hline
+Project Targets & Project Targets were created & 10/05/2022 \\
+\hline
+Data Extraction & Data was extracted successfully & 25/05/2022\\
+\hline
+Data Cleaning & Data Cleaning and Wrangling was carried out. & 10/06/2022\\
+\hline
+Data Visualisation and Exploratory Analysis & Hypothesis Testing on data was carried out and data was visualised & 18/06/2022\\
+\hline
+Feature Engineering & Initial features were created and Column Transformer was implemented & 24/06/2022\\
+\hline
+Hyperparameter Tuning and Machine Learning & Machine Learning Models were shortlisted and Hyper-parameters were tuned & 30/06/2022\\
+\hline
+Initial Results & Initial Results were obtained and Visualisation was initiated & 07/06/2022\\
+\hline
+PowerPoint Presentation & Initial results were inculcated in the presentation and the presentation was finalized & 10/06/2022\\
+\hline
+Further Model Tuning & Machine Learning Models were tuned further to finalize outputs & 15/06/2022\\
+\hline
+Report Writing and Thesis Poster & Report Writing was initiated and Points for Poster were shortlisted & 20/06/2022\\
+\hline 
+Report Writing and Thesis Poster & Report Writing was finalized and Thesis Poster was finalized & 13/08/2022\\
+\hline
+\end{tabular}
+\caption{Milestones}
+\label{Milestones}
+\end{table}
+\end{center}
+% end of the FR table
+
+
