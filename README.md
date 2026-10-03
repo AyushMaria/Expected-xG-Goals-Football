@@ -76,6 +76,9 @@ python scripts/build_shots.py --competition "La Liga" --team Barcelona \
 # Every men's match in the open data (~9 min fresh); see docs/DATA.md for a summary
 python scripts/build_shots.py --gender male --out data/shots_all_men.parquet
 
+# Train, tune and evaluate the models (~6 min); see docs/RESULTS.md
+python scripts/train_evaluate.py --shots data/shots_all_men.parquet --out results
+
 # Run the tests
 python -m pytest
 ```
@@ -106,9 +109,11 @@ Compared with the 2022 thesis data, StatsBomb has since added a few matches, re-
 Expected-xG-Goals-Football/
 ├── xg/
 │   ├── data.py                  # Download + cache StatsBomb open data
-│   └── features.py              # Events → one row per shot with model features
+│   ├── features.py              # Events → one row per shot with model features
+│   └── model.py                 # Modelling set, models, match-grouped tuning, calibration metrics
 ├── scripts/
 │   └── build_shots.py           # Command-line build of the shot table
+├── docs/                        # DATA.md (dataset) and RESULTS.md (model evaluation)
 ├── tests/                       # pytest tests (no network needed)
 ├── data/                        # Created by build_shots.py (not committed)
 ├── src/
