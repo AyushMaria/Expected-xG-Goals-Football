@@ -17,6 +17,10 @@
 </p>
 
 <p align="center">
+  <a href="https://ayushmaria.github.io/xg/"><b>▶ Try the interactive xG board</b></a>
+</p>
+
+<p align="center">
   <a href="#-the-final-score">Results</a> ·
   <a href="#-post-match-analysis">Teams &amp; players</a> ·
   <a href="#-one-model-many-leagues">Leagues</a> ·
@@ -165,6 +169,7 @@ flowchart LR
 | [`xg/model.py`](xg/model.py) | Modelling set, match-grouped split, tuning, calibration metrics |
 | [`xg/tables.py`](xg/tables.py) | League tables with xG, and goals-vs-xG finishing tables |
 | [`xg/compare.py`](xg/compare.py) | Match-bootstrap confidence intervals |
+| [`scripts/export_web_model.py`](scripts/export_web_model.py) | Exports both models to JSON for the [interactive board](https://ayushmaria.github.io/xg/) |
 
 ---
 
